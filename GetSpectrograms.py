@@ -21,7 +21,6 @@ import ConvertGenresToLabels as CGTL
 from keras.utils import np_utils
 
 def GetSpectrograms(pathDataset,genres,duration,offset):
-#    genres = 'blues classical country disco hiphop jazz metal pop reggae rock'.split() MAYBE NOT NEEDED, TRY
     Ms=[]
     labels=[]
     for filename in os.listdir(pathDataset):

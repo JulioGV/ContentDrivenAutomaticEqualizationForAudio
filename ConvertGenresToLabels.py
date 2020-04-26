@@ -21,7 +21,6 @@ def ConvertGenresToLabels(g):
     for i in range(len(genres)):
         d[genres[i]]=i
     labels=[]
-#    g=g.split()
     for i in range(len(g)):
         labels.append(d.get(g[i]))
     return labels

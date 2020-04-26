@@ -32,4 +32,4 @@ def GetTestData(pathDatasetTest,duration,offset):
     MelSpectrogramsNormalized = N.Normalize(MelSpectrograms)
     labels=np.repeat(genres,len(MelSpectrograms)/len(genres))
     
-    return MelSpectrogramsNormalized,labels #ADD THE TEMPO
+    return MelSpectrogramsNormalized,labels 
