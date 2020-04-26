@@ -4,16 +4,19 @@ Created on Fri Feb 21 18:10:39 2020
 
 @author: julio
 """
+##################################################################
+# Author: Julio González Villegas                                #     
+# email: juliogonzalez9634@gmail.com                             #
+#                                                                #
+# This script performs the equalization. The parameters of the   #
+# gains are in the function "getGains()" and they could be       #
+# changed there.                                                 #
+#                                                                #
+##################################################################
 import scipy.signal as signal
 from scipy.signal import butter,lfilter
 import numpy as np
 import matplotlib.pyplot as plt
-import librosa
-
-import scipy.signal as signal
-import numpy as np
-import matplotlib.pyplot as plt
-from scipy.fftpack import fft
 
 def equalizer(audio,fs,genre):
     fs=22050
@@ -46,16 +49,6 @@ def equalizer(audio,fs,genre):
     band9=lfilter(b9,a9,audio)
     band9=band9*10**(gains[8]/20)
     equalizedSignal=band1+band2+band3+band4+band5+band6+band7+band8+band9
-    showFreqResponse(b1,a1,gains[0],'b',genre)
-    showFreqResponse(b2,a2,gains[1],'g',genre)
-    showFreqResponse(b3,a3,gains[2],'r',genre)
-    showFreqResponse(b4,a4,gains[3],'c',genre)
-    showFreqResponse(b5,a5,gains[4],'m',genre)
-    showFreqResponse(b6,a6,gains[5],'y',genre)
-    showFreqResponse(b7,a7,gains[6],'k',genre)
-    showFreqResponse(b8,a8,gains[7],'#ff9990',genre)
-    showFreqResponse(b9,a9,gains[8],'b--',genre)
-    plt.show()
     return equalizedSignal
 def getGains(genre):
         if(genre=='blues'):
@@ -164,51 +157,3 @@ def showEqCurve(genre):
     showFreqResponse(b7,a7,gains[6])
     showFreqResponse(b8,a8,gains[7])
     showFreqResponse(b9,a9,gains[8])
-#------------MAIN FOR TESTS----------------
-
-path='C:\\Users\\julio\\Desktop\\Thesis\\Datasets\\TrainingData\\blues\\blues.00034.wav'
-audio,fs=librosa.load(path)
-equalizedSignal=equalizer(audio,fs,'jazz')
-equalizedSignal=equalizer(audio,fs,'hiphop')
-equalizedSignal=equalizer(audio,fs,'classical')
-equalizedSignal=equalizer(audio,fs,'rock')
-
-
-##print('SPECTRUM OF THE ORIGINAL SIGNAL')
-##showSpectrogram(audio,fs)
-##print('FFT of the original signal')
-##displayFFT(audio)
-##print('Spectrum of the equalized Signal')
-##showSpectrogram(equalizedSignal,fs)
-##print('FFT of the equalized signal')
-##displayFFT(equalizedSignal)
-#
-##print('SPECTRUMS AND FFTS OF THE BANDS:')
-##print('FIRST BAND')
-##showSpectrogram(band1,fs)
-##displayFFT(band1)
-##print('SECOND BAND')
-##showSpectrogram(band2,fs)
-##displayFFT(band2)
-##print('THIRD BAND')
-##showSpectrogram(band3,fs)
-##displayFFT(band3)
-##print('FOURTH BAND')
-##showSpectrogram(band4,fs)
-##displayFFT(band4)
-##print('FIFTH BAND')
-##showSpectrogram(band5,fs)
-##displayFFT(band5)
-##print('SIXTH BAND')
-##showSpectrogram(band6,fs)
-##displayFFT(band6)
-##print('SEVENTH BAND')
-##showSpectrogram(band7,fs)
-##displayFFT(band7)
-##print('EIGHT BAND')
-##showSpectrogram(band8,fs)
-##displayFFT(band8)
-##print('NINTH BAND')
-##showSpectrogram(band9,fs)
-##displayFFT(band9)
-##

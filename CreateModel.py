@@ -4,11 +4,18 @@ Created on Tue Jan 28 00:03:47 2020
 
 @author: julio
 """
+##################################################################
+# Author: Julio González Villegas                                #     
+# email: juliogonzalez9634@gmail.com                             #
+#                                                                #
+# Script for the creation of the model, the input dimensions     #
+# are passed as parameters.                                      #
+##################################################################
+
 
 from keras.models import Sequential
 from keras.layers import Dense,Dropout,Activation,Flatten
 from keras.layers import Convolution2D,MaxPooling2D
-from keras.utils import np_utils
 
 
 def CreateModel(depth,width,height):
